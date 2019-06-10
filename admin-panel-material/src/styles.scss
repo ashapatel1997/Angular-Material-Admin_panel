@@ -12,13 +12,13 @@ body,html {
 .alert{color:red;}
 
 /*variables*/
-/*-----large screen----*/
-
+$large-font:18px;
+$medium-font:15px;
 
 /*margin*/
 .mt-64{margin-top:64px;}
 .mt-0{margin-top:0px;}
-
+.ml-10 { margin-left:10px;}
 
 
 /*padding*/
@@ -32,7 +32,7 @@ body,html {
 
 /*height*/
 .h-50{height:50px;}
-
+.h-40 {height:40px;}
 
 
 /*width*/
@@ -41,8 +41,60 @@ body,html {
 
 
 /*global style for mat-nav-list*/
- mat-nav-list{
+mat-nav-list { padding-top: 0px;
  
-     padding-top:0px;
-   }
+}
 
+
+
+ /*common class*/
+.show { display: block; } //show element
+.hide { display: none; } //hide element
+.spacing { flex: auto; } //spacing between elements
+
+
+//common style for bottom section content header
+.selected-listItem-header
+{
+ 
+  width: 98%;
+  left: 1%;
+  .header-grid-tile {
+    border-bottom: 1px solid grey;
+    border-radius: 5px;
+    .left-heading {
+      position: absolute;
+      left: 10px;
+      font-size: 25px;
+      font-weight: bold;
+      bottom: 5px;
+    }
+
+    .right-addUser-button {
+      position: absolute;
+      right: 10px;
+      font-weight: bold;
+      bottom: 5px;
+      font-size: 20px;
+     
+
+      mat-icon {
+        font-size: 30px;
+        z-index:999;
+      }
+    }
+  }
+}
+
+
+@media only screen and (max-width:768px) {
+  .selected-listItem-header {
+    .header-grid-tile {
+      .left-heading {font-size: 20px;}
+      .right-addUser-button {
+        font-size: 10px;
+        mat-icon {font-size: 20px;}
+      }
+    }
+  }
+}

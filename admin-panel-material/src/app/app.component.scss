@@ -2,71 +2,99 @@
 @import '../styles.scss';
 
 /*admin panel stop header styles*/
-.admin-panel-top-header{
-  background-color:#0059b3;
-  color:white;
-  position:fixed;
-  box-shadow:0px 0px 20px  black; //x-position y-position shadow-sharpness color
-  z-index:2;
-  display:flex;
+.admin-panel-top-header {
+  background-color: #00264d;
+ // 
+  color: white;
+  position: fixed;
+  box-shadow: 0px 0px 5px black; //x-position y-position shadow-sharpness color
+  z-index: 2;
+  display: flex;
   /*header left align image and heading*/
- 
-    .left-admin-image{height:30px; width:30px; }
-     .left-admin-panel-heading{}
- 
-     .header-right-menu-icon{
-       z-index:2;
-     }
-  
- 
-  
+  .left-admin-image {
+    height: 30px;
+    width: 30px;
+  }
+
+  .header-right-menu-icon {
+    z-index: 2; //to display tooltip, over the other elements 
+  }
 }
 
 
 /*admin panel bottom section (sidenav & content)*/
-.bottom-section{
- width:100%;
-  height:100vh;
- 
-  .left-sidenav{
-   width:200px;
+.bottom-section {
+  width: 100%;
+  height: 100vh;
+
+  //bottom section left sidenav
+  .left-sidenav {
+    width: 200px;
+    margin-top: 50px;
+    background-color: #004080;
   }
-  .bottom-section-content{
-    
-    .content-header{
-    background-color:#0059b3;
-   
-    .sidenav-toggle-button{
-    
+
+  //bootm section content
+  .bottom-section-content {
+    margin-top: 50px;
+  }
+}
+
+
+//bottom section left sidenav list
+.leftSidenav {
+  ul {
+    list-style-type: none;
+    text-align: center;
+
+    li {
+      a {
+        font-size: $large-font;
+        height: 40px;
+        color: white;
+
+        //style apply to hovered link
+        &:hover {
+          background-color: #003366;
+        }
+        //style apply to active link
+        &.active {
+          background-color: #003366;
+        }
+      }
     }
- }
-  }
-
-}
-
-
-ul{
-  list-style-type:none;
-  li{
-    text-align:center;
-     .active{background-color:#e6f2ff!important;}
-     
-    
-     
   }
 }
-.spacing { flex:auto; }
 
 
 
-@media only screen and (max-width:768px)
-{
- .admin-panel-top-header{
-   //position:unset;
- }
+
+//styles applied to the elements up 768px screen size
+@media only screen and (max-width:768px) {
+  .bottom-section {
+
+    .left-sidenav  {
+      width: 150px;
+      margin-top: 50px;
+    }
+
+    .bottom-section-content {
+     margin-top: 50px;
+
+     //style of visible toolbar 
+     .content-header {background-color: #e6f2ff;}
+    }
+  }
+
+  //bottom section left sidenav list
+  .leftSidenav {
+    ul {
+      li {
+        a {font-size: $medium-font;}
+      }
+    }
+  }
 }
-
-
 
 
 

@@ -15,7 +15,11 @@ import {
   MatDividerModule,
   MatListModule,
   MatMenuModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatSlideToggleModule,
+  MatGridListModule,
+  MatTabsModule,
+  MatStepperModule
   }
   from '@angular/material';
 
@@ -30,7 +34,11 @@ const modules =
     MatDividerModule,
     MatListModule,
     MatMenuModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatSlideToggleModule,
+    MatGridListModule,
+    MatTabsModule,
+    MatStepperModule
   ];
 @NgModule({
   declarations: [],

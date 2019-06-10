@@ -12,6 +12,7 @@ import { ImagesComponent } from './images/images.component';
 import { ReportsComponent } from './reports/reports.component';
 import { Report1Component } from './reports/report1/report1.component';
 import { Report2Component } from './reports/report2/report2.component';
+import { AddUserComponent } from './users/add-user/add-user.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { Report2Component } from './reports/report2/report2.component';
     ImagesComponent,
     ReportsComponent,
     Report1Component,
-    Report2Component
+    Report2Component,
+    AddUserComponent
    
   ],
   imports: [

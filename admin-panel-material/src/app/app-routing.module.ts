@@ -9,9 +9,14 @@ const routes: Routes = [
   { path: 'users', component: UsersComponent },
   { path: '', pathMatch: 'full', redirectTo:'/users' },
   { path: 'images', component: ImagesComponent },
+  
   //{ path: 'reports', component: ReportsComponent },
-  { path: 'reports/report1', component: Report1Component },
+   
+        { path: 'reports/report1', component: Report1Component },
   { path: 'reports/report2', component: Report2Component }
+     
+ 
+  
 
 ];
 

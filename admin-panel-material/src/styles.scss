@@ -1,0 +1,48 @@
+/* You can add global styles to this file, and also import other style files */
+
+/*angular material theme*/
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body,html {
+    margin: 0;
+}
+
+
+/*colors*/
+.alert{color:red;}
+
+/*variables*/
+/*-----large screen----*/
+
+
+/*margin*/
+.mt-64{margin-top:64px;}
+.mt-0{margin-top:0px;}
+
+
+
+/*padding*/
+.p-0{padding:0px 0px;}
+.pr-5 { padding-right: 0px; }
+.pl-10 { padding-left: 10px; }
+.pl-5 { padding-left:5px;}
+.pl-0 { padding-left:0px;}
+
+
+
+/*height*/
+.h-50{height:50px;}
+
+
+
+/*width*/
+.w-100p { width:100%;} //value in percentage
+
+
+
+/*global style for mat-nav-list*/
+ mat-nav-list{
+ 
+     padding-top:0px;
+   }
+

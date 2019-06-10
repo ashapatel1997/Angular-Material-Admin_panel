@@ -1,0 +1,73 @@
+/*variable and common styles area defined input "styles.scss"*/
+@import '../styles.scss';
+
+/*admin panel stop header styles*/
+.admin-panel-top-header{
+  background-color:#0059b3;
+  color:white;
+  position:fixed;
+  box-shadow:0px 0px 20px  black; //x-position y-position shadow-sharpness color
+  z-index:2;
+  display:flex;
+  /*header left align image and heading*/
+ 
+    .left-admin-image{height:30px; width:30px; }
+     .left-admin-panel-heading{}
+ 
+     .header-right-menu-icon{
+       z-index:2;
+     }
+  
+ 
+  
+}
+
+
+/*admin panel bottom section (sidenav & content)*/
+.bottom-section{
+ width:100%;
+  height:100vh;
+ 
+  .left-sidenav{
+   width:200px;
+  }
+  .bottom-section-content{
+    
+    .content-header{
+    background-color:#0059b3;
+   
+    .sidenav-toggle-button{
+    
+    }
+ }
+  }
+
+}
+
+
+ul{
+  list-style-type:none;
+  li{
+    text-align:center;
+     .active{background-color:#e6f2ff!important;}
+     
+    
+     
+  }
+}
+.spacing { flex:auto; }
+
+
+
+@media only screen and (max-width:768px)
+{
+ .admin-panel-top-header{
+   //position:unset;
+ }
+}
+
+
+
+
+
+

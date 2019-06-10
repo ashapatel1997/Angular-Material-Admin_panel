@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html>
+<!--external files can be placed inside the head tag--> 
+<head>
+
+</head>
+<!--design part in body tag-->
+<body>
+  <!--top fixed header-->
+  <mat-toolbar class="admin-panel-top-header  ">
+      <!-- header left image and heading -->
+    <!--<button mat-icon-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>-->
+   
+      <img src="assets/admin.png" class="left-admin-image" />
+      <h1 class="left-admin-panel-heading  pl-5">Admin Panel</h1>
+  
+    <span class="spacing"></span>
+
+    <!--header right menu option with profile and logout button-->
+    <button mat-icon-button [matMenuTriggerFor]="menu" class="header-right-menu-icon" matTooltip="Account actions" ><mat-icon>more_vert</mat-icon></button>
+    <mat-menu #menu class="header-right-menu-options" >
+      <button mat-menu-item >
+        <mat-icon>person</mat-icon>
+        <span>Admin Name</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>power_settings_new</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+    
+  </mat-toolbar>
+
+
+  <!--bottom section-->
+  <mat-sidenav-container class="bottom-section ">
+    <!--side navigation menu-->
+    <mat-sidenav class="left-sidenav mt-64" #sidenav  mode="over" [(opened)]="openSidenav">
+      <mat-nav-list >
+        <ul class="mt-0 pl-0 w-100p">
+          
+          <li >
+            <a mat-list-item focus="false" tabindex="-1" routerLink="/users" class="selectedClass" target="_parent" routerLinkActive="active" (click)="itemHideShow(1)">Users</a>
+          </li>
+          <mat-divider></mat-divider>
+          <li>
+            <a mat-list-item href="images" tabindex="-1" (click)="itemHideShow(2)" routerLink="/images" target="_parent" routerLinkActive="active" >Images</a>
+          </li>
+          <mat-divider></mat-divider>
+
+          <li>
+            <a mat-list-item (click)="itemHideShow(3)" tabindex="-1" routerLink="/reports" routerLinkActive="active">
+              Reports
+              <span class="spacing"></span>
+
+              <mat-icon *ngIf="arrowPosition">expand_more</mat-icon>
+              <mat-icon *ngIf="!arrowPosition">expand_less</mat-icon>
+            </a>
+
+            <ul [hidden]="hide"  class="mt-0 pl-0 w-100p">
+              <li>
+                <a mat-list-item tabindex="-1" routerLink="/reports/report1" target="_parent" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Report 1</a>
+
+              </li>
+              <li>
+                <a mat-list-item tabindex="-1" routerLink="/reports/report2" target="_parent" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Report 2</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        
+
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <!--bottom section content-->
+    <mat-sidenav-content class="bottom-section-content mt-64" >
+      <!--content header-->
+      <mat-toolbar class="content-header pl-10   h-50" >
+        <button mat-icon-button (click)="openSidenav=!openSidenav" class="sidenav-toggle-button"  >
+          <mat-icon>menu</mat-icon>
+
+        </button>
+        <span> {{ selectedValue}} </span>
+        
+      </mat-toolbar>
+     <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+  
+  
+</body>
+</html>
+
+

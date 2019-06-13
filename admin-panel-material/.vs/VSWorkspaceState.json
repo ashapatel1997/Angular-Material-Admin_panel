@@ -4,9 +4,9 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\images",
-    "\\src\\app\\reports",
-    "\\src\\app\\reports\\report1"
+    "\\src\\app\\shared-module",
+    "\\src\\assets"
   ],
-  "SelectedNode": "\\src\\app\\reports\\report1\\report1.component.scss",
+  "SelectedNode": "\\src\\app\\images\\images.component.html",
   "PreviewInSolutionExplorer": false
 }

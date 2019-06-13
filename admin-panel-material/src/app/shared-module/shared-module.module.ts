@@ -29,7 +29,8 @@ import {
   MatCheckboxModule,
   MatCardModule,
   MatDialogModule,
-  MatTableModule
+  MatTableModule,
+  MatPaginatorModule
   
  
   }
@@ -60,7 +61,8 @@ const modules =
     MatCheckboxModule,
     MatCardModule,
     MatDialogModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule
     
   ];
 @NgModule({

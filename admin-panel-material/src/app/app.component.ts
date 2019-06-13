@@ -15,7 +15,7 @@ export class AppComponent {
   arrowPosition: boolean = true; //boolean valu to change arrow of list
   hide: boolean = false; //boolean value to hide or show the sub options
   showToggle: string;  //show or hide menu icon based on screen size
- 
+  activeLink: string; //apply active class to parent is sub option is selected
   public innerWidth: any; //width of the window 
 
   ngOnInit() {
@@ -23,11 +23,26 @@ export class AppComponent {
     this.changeLayout(this.innerWidth);
   }
   
-  /** to hide or show sub options */
-  itemHideShow()
+  /** to hide or show sub options
+  n is index of list item
+*/
+  itemHideShow(n:number)
   {
-        this.arrowPosition = !this.arrowPosition;
-        this.hide = !this.hide;
+    if (n === 1 || n === 2) {
+      this.arrowPosition = true;
+      this.hide = false;
+      this.activeLink = '';
+    }
+    else {
+      this.arrowPosition = !this.arrowPosition;
+      this.hide = !this.hide;
+    }
+       
+  }
+
+  
+  activeParent() {
+    this.activeLink = 'active';
   }
 
   onResize(event)
@@ -38,7 +53,7 @@ export class AppComponent {
 
   changeLayout(width: any) {
     if (width <= 768) {
-         this.showToggle = 'show';
+        this.showToggle = 'show';
       this.mode = 'over';
       this.openSidenav = false;
      

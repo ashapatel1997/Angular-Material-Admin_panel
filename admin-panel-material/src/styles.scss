@@ -2,8 +2,9 @@
 
 /*angular material theme*/
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-
+@import 'mixins';
 body,html {
+  
     margin: 0;
 }
 
@@ -14,16 +15,35 @@ body,html {
 /*variables*/
 $large-font:18px;
 $medium-font:15px;
+$percent-0: 0%;
+$percent-5: 5%;
+$percent-10:10%;
+$percent-15: 15%;
+$percent-20: 20%;
+$percent-25: 25%;
+$percent-30: 30%;
+$percent-35: 35%;
+$percent-40: 40%;
+$percent-50: 50%;
+$percent-60: 60%;
+$percent-70: 70%;
+$percent-75: 75%;
+$percent-80: 80%;
+$percent-90: 90%;
+$percent-100: 100%;
+
 
 /*margin*/
 .mt-64{margin-top:64px;}
 .mt-0{margin-top:0px;}
 .ml-10 { margin-left:10px;}
-
+.mt-30{margin-top:30px;}
+.mtb-20{margin:20px 0px;} //margin top-bottom
 
 /*padding*/
-.p-0{padding:0px 0px;}
-.pr-5 { padding-right: 0px; }
+.p-0 { padding: 0px 0px; }
+.pr-5 { padding-right: 5px; }
+.pr-10 { padding-right: 10px; }
 .pl-10 { padding-left: 10px; }
 .pl-5 { padding-left:5px;}
 .pl-0 { padding-left:0px;}
@@ -33,17 +53,18 @@ $medium-font:15px;
 /*height*/
 .h-50{height:50px;}
 .h-40 {height:40px;}
-
+.h-30 { height:30px;}
 
 /*width*/
 .w-100p { width:100%;} //value in percentage
+.w-30{width:30px;}
 
-
+/*z-index*/
+.z-index-2 { z-index:2;}
+.z-index-999 { z-index:999;}
 
 /*global style for mat-nav-list*/
-mat-nav-list { padding-top: 0px;
- 
-}
+mat-nav-list { padding-top: 0px;}
 
 
 
@@ -54,34 +75,12 @@ mat-nav-list { padding-top: 0px;
 
 
 //common style for bottom section content header
-.selected-listItem-header
-{
- 
-  width: 98%;
-  left: 1%;
-  .header-grid-tile {
-    border-bottom: 1px solid grey;
-    border-radius: 5px;
-    .left-heading {
-      position: absolute;
-      left: 10px;
-      font-size: 25px;
-      font-weight: bold;
-      bottom: 5px;
-    }
+.selected-listItem-header { width: 98%; left: 1%;
+  .header-grid-tile { border-bottom: 1px solid grey; border-radius: 5px;
+    .left-heading { position: absolute; left: 10px; font-size: 25px; font-weight: bold; bottom: 5px; }
 
-    .right-addUser-button {
-      position: absolute;
-      right: 10px;
-      font-weight: bold;
-      bottom: 5px;
-      font-size: 20px;
-     
-
-      mat-icon {
-        font-size: 30px;
-        z-index:999;
-      }
+    .content-header-right-button { position: absolute; right: 10px; font-weight: bold; bottom: 5px; font-size: 20px;
+      mat-icon { font-size: 30px; z-index: 999;padding-right:5px;}
     }
   }
 }
@@ -98,3 +97,6 @@ mat-nav-list { padding-top: 0px;
     }
   }
 }
+
+
+

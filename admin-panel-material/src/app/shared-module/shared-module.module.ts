@@ -19,12 +19,24 @@ import {
   MatSlideToggleModule,
   MatGridListModule,
   MatTabsModule,
-  MatStepperModule
+  MatStepperModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatRadioModule,
+  MatSelectModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatCheckboxModule,
+  MatCardModule,
+  MatDialogModule,
+  MatTableModule
+  
+ 
   }
   from '@angular/material';
 
 const modules =
-  [FormsModule,
+  [ FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatButtonModule,
@@ -38,7 +50,18 @@ const modules =
     MatSlideToggleModule,
     MatGridListModule,
     MatTabsModule,
-    MatStepperModule
+    MatStepperModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCheckboxModule,
+    MatCardModule,
+    MatDialogModule,
+    MatTableModule
+    
   ];
 @NgModule({
   declarations: [],

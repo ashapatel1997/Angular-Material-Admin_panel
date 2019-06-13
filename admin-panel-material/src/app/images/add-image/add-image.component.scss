@@ -1,0 +1,8 @@
+@import '../../../styles.scss';
+
+.add-image-form-card { width: $percent-50; margin-left: $percent-25; margin-top: 20px;
+  .add-image-form {padding:30px;
+    .form-field { display: block; }
+  }
+}
+

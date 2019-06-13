@@ -10,12 +10,7 @@
   box-shadow: 0px 0px 5px black; //x-position y-position shadow-sharpness color
   z-index: 2;
   display: flex;
-  /*header left align image and heading*/
-  .left-admin-image {
-    height: 30px;
-    width: 30px;
-  }
-
+  
   .header-right-menu-icon {
     z-index: 2; //to display tooltip, over the other elements 
   }

@@ -2,8 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\app"
+    "\\src\\app",
+    "\\src\\app\\images",
+    "\\src\\app\\reports",
+    "\\src\\app\\reports\\report1"
   ],
-  "SelectedNode": "\\src\\app\\app.component.scss",
+  "SelectedNode": "\\src\\app\\reports\\report1\\report1.component.scss",
   "PreviewInSolutionExplorer": false
 }

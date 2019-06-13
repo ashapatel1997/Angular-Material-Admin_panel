@@ -8,15 +8,15 @@
 <!--design part in body tag-->
 <body>
   <!--top fixed header-->
-  <mat-toolbar class="admin-panel-top-header  h-50">
+  <mat-toolbar class="admin-panel-top-header  h-50 ">
     <!-- header left image and heading -->
-    <img src="assets/admin.png" class="left-admin-image" />
+    <img src="assets/admin.png" class="h-30 w-30" />
     <h1 class="left-admin-panel-heading  pl-5">Admin Panel</h1>
   
     <span class="spacing"></span>
 
     <!--header right menu option with profile and logout button-->
-    <button mat-icon-button [matMenuTriggerFor]="menu" class="header-right-menu-icon" matTooltip="Account actions" ><mat-icon>more_vert</mat-icon></button>
+    <button mat-icon-button [matMenuTriggerFor]="menu" class="header-right-menu-icon " matTooltip="Account actions" ><mat-icon>more_vert</mat-icon></button>
     <mat-menu #menu >
       <button mat-menu-item >
         <mat-icon>person</mat-icon>
@@ -37,18 +37,18 @@
     <mat-sidenav class="left-sidenav " #sidenav [mode]="mode" [opened]="openSidenav">
       <mat-nav-list class="leftSidenav">
         <ul class="mt-0 pl-0 w-100p">
-
+          <!--bottom section side menu list items -->
           <li>
-            <a mat-list-item tabindex="-1" routerLink="users" class="selectedClass" target="_parent" routerLinkActive="active" >Users</a>
+            <a mat-list-item tabindex="-1" routerLink="users" target="_parent" (click)="hideSubOption(1)" class="selectedClass"  routerLinkActive="active" >Users</a>
           </li>
           <mat-divider></mat-divider>
           <li>
-            <a mat-list-item href="images" tabindex="-1" routerLink="images" target="_parent" routerLinkActive="active">Images</a>
+            <a mat-list-item href="images" tabindex="-1" target="_parent" (click)="hideSubOption(2)" routerLink="images"  routerLinkActive="active">Images</a>
           </li>
 
           <mat-divider></mat-divider>
           <li>
-            <a mat-list-item (click)="itemHideShow()" routerLink="reports" tabindex="-1" name="reports" routerLinkActive="active">
+            <a mat-list-item (click)="itemHideShow(3)"   tabindex="-1"  [ngClass]="activeLink">
               Reports
               <span class="spacing"></span>
 
@@ -58,12 +58,12 @@
 
             <ul *ngIf="hide" class="mt-0 pl-0 w-100p">
               <li>
-                <a mat-list-item tabindex="-1" class="pl-10" routerLink="reports/report1" target="_parent" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Report 1</a>
+                <a mat-list-item tabindex="-1" class="pl-10"  (click)="activeParent()"  routerLink="reports/report1"  routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Report 1</a>
 
               </li>
             
               <li>
-                <a mat-list-item tabindex="-1" class="pl-10" routerLink="reports/report2" target="_parent" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Report 2</a>
+                <a mat-list-item tabindex="-1" class="pl-10"  (click)="activeParent()" routerLink="reports/report2" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Report 2</a>
               </li>
              
             </ul>

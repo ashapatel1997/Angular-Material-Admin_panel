@@ -13,9 +13,11 @@ export class ImagesService {
   imageList: Images[] =
     [
       { id: 1, imageUrl: 'assets/admin.png', imageDescription: 'Guide to the Galaxy has a few things to say on the subject of towels.' },
-      { id: 2, imageUrl: 'assets/img-1.jpg', imageDescription: 'description 2' }
-     
-     
+      {
+        id: 2,
+        imageUrl: "assets/taj.jpg",
+        imageDescription: "An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his favourite wife, the Taj Mahal is the jewel of Muslim art in India and one of the universally admired masterpieces of the world's heritage. "
+      }
      
     ]
 

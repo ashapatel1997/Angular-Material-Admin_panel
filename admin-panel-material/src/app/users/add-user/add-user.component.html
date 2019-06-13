@@ -10,15 +10,17 @@
 <mat-card class="add-user-form-card p-0 ">
   
   <mat-horizontal-stepper class="add-user-stepper" linear="true">
-
-    <mat-step class="add-personal-details" [stepControl]="personalDetailsFormGroup" linear="true" state="home">
-      <ng-template matStepLabel matStepperIcon="edit">Personal Details</ng-template>
+    <ng-template matStepperIcon="edit">
+      <mat-icon>check</mat-icon>
+    </ng-template>
+    <mat-step #myStep  class="add-personal-details" label="Personal Details" [stepControl]="personalDetailsFormGroup" linear="true" >
+      
       <mat-divider></mat-divider>
 
       <form [formGroup]="personalDetailsFormGroup" class="personal-details-form">
         <mat-form-field class="form-field">
           <input matInput placeholder="User Name" formControlName="userNameControl" required autocomplete="off" />
-          <mat-error *ngIf="personalDetailsFormGroup.get('userNameControl').hasError('required')">Please enter a user name</mat-error>
+          <mat-error *ngIf="personalDetailsFormGroup.get('userNameControl').hasError('required')">User name is required</mat-error>
         </mat-form-field>
 
 
@@ -57,8 +59,8 @@
 
     </mat-step>
     <!--stepper 2 for academic details-->
-    <mat-step class="add-academic-details">
-      <ng-template matStepLabel>Academic Details</ng-template>
+    <mat-step class="add-academic-details" label="Academic Details">
+     
 
       <form>
 
@@ -97,10 +99,11 @@
       </form>
 
     </mat-step>
-
+  
   </mat-horizontal-stepper>
   
 </mat-card>
+
 
 
 

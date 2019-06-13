@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,ViewChild} from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
@@ -19,6 +19,7 @@ interface department {
 
 export class AddUserComponent implements OnInit {
 
+  @ViewChild('myStep') myStep;
   constructor(private _formBuilder: FormBuilder, private _route: ActivatedRoute, private _router: Router,
             private _matDialog: MatDialog) { }
 

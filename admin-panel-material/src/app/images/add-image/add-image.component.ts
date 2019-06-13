@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatDialogConfig} from '@angular/material';
 import { ImagesComponent } from '../images.component';
 import { Images } from '../images';
 import { ImagesService } from '../images.service';
@@ -43,6 +43,8 @@ export class AddImageComponent implements OnInit {
 
   //open dialog for cancel the add-image form submission
   openDialog() {
+   // const dialogConfig = new MatDialogConfig();
+    //dialogConfig.position = { left: '40%', top: '20%' };
     this._matDialog.open(CancelDialogComponent);
   }
 

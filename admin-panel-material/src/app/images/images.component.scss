@@ -3,17 +3,19 @@
 
 /*image slider card*/
 .image-slider-card { min-height: $percent-40; width: $percent-30; margin-left: $percent-35; margin-top: 20px; margin-bottom: 20px; /*image slider section for image display according to path*/ .image-display-section { position: absolute; width: $percent-100; height: $percent-75;
-    .img { position: absolute; width: $percent-100; height: $percent-100; }
-    /*image slider left and right button*/ .slider-button-left { position: absolute; top: $percent-40;
-      mat-icon { font-size: 30px; }
-    }
-    .slider-button-right { position: absolute; top: $percent-40; right: $percent-0;
-      mat-icon { font-size: 30px; }
-    }
+    
+      .img { position: absolute; width: $percent-100; height: $percent-100; }
+      /*image slider left and right button*/ .slider-button-left { position: absolute; top: $percent-40;
+        mat-icon { font-size: 30px; }
+      }
+      .slider-button-right { position: absolute; top: $percent-40; right: $percent-0;
+        mat-icon { font-size: 30px; }
+      }
+    
   }
-  /*image description section in slider*/ .image-description-section { position: absolute; ;width:$percent-90; cursor: pointer; top: $percent-75; margin:$percent-0 $percent-5;
+  /*image description section in slider*/ .image-description-section { position: absolute; width: $percent-90; cursor: pointer; top: $percent-75; margin: $percent-0 $percent-5;
     span {
-      padding:3px 0px;
+      padding: 3px 0px;
       @include multi-line-ellipsis(15px,1.5,2)
     }
   }
@@ -53,9 +55,10 @@ table { width: $percent-60; margin-left: $percent-20; margin-bottom: $percent-5;
 
 /*styles for the image slider card when screen size(>=768px and <=1024px)*/
 @media only screen and (max-width:1024px) and (min-width:758px) {
-  body{
-    overflow:auto;
+
+  .image-slider-card { min-height: $percent-25; width: $percent-50; margin-left: $percent-25;
+    .image-display-section { height: $percent-80; }
+    .image-description-section { position: absolute; width: $percent-90; cursor: pointer; top: $percent-80; margin: $percent-0 $percent-5; }
+    table { width: $percent-90; margin-left: $percent-5; }
   }
-  .image-slider-card { min-height: $percent-30; width: $percent-50; margin-left: $percent-25; }
-  table { width: $percent-90; margin-left: $percent-5; }
 }

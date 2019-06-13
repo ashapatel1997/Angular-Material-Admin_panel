@@ -39,11 +39,11 @@
         <ul class="mt-0 pl-0 w-100p">
           <!--bottom section side menu list items -->
           <li>
-            <a mat-list-item tabindex="-1" routerLink="users" target="_parent" (click)="hideSubOption(1)" class="selectedClass"  routerLinkActive="active" >Users</a>
+            <a mat-list-item tabindex="-1" routerLink="users" (click)="itemHideShow(1)"   class="selectedClass"  routerLinkActive="active" >Users</a>
           </li>
           <mat-divider></mat-divider>
           <li>
-            <a mat-list-item href="images" tabindex="-1" target="_parent" (click)="hideSubOption(2)" routerLink="images"  routerLinkActive="active">Images</a>
+            <a mat-list-item href="images" tabindex="-1" (click)="itemHideShow(2)"  routerLink="images"  routerLinkActive="active">Images</a>
           </li>
 
           <mat-divider></mat-divider>
@@ -81,7 +81,7 @@
     <mat-sidenav-content class="bottom-section-content " >
       <!--content header-->
       <mat-toolbar class="content-header pl-10  h-40 " [ngClass]="showToggle">
-        <button mat-icon-button  (click)='sidenav.toggle()' class='toogleSidenav ml-10' >
+        <button mat-icon-button  (click)='sidenav.open()' class='toogleSidenav ml-10' >
           <mat-icon>menu</mat-icon><span> Menu </span>
         </button>
         

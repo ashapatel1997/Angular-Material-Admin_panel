@@ -29,6 +29,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AddUserComponent,
     CancelDialogComponent,
     AddImageComponent
+    
    
   ],
   imports: [

@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit ,ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +18,7 @@ export class AppComponent {
   activeLink: string; //apply active class to parent is sub option is selected
   public innerWidth: any; //width of the window 
 
+  
   ngOnInit() {
     this.innerWidth = window.innerWidth;
     this.changeLayout(this.innerWidth);
@@ -32,12 +33,14 @@ export class AppComponent {
       this.arrowPosition = true;
       this.hide = false;
       this.activeLink = '';
+     
+      
     }
     else {
       this.arrowPosition = !this.arrowPosition;
       this.hide = !this.hide;
     }
-       
+   
   }
 
   
@@ -50,13 +53,13 @@ export class AppComponent {
     this.innerWidth = window.innerWidth;// window width
     this.changeLayout(this.innerWidth);
   }
-
+  
   changeLayout(width: any) {
     if (width <= 768) {
-        this.showToggle = 'show';
+       this.showToggle = 'show';
       this.mode = 'over';
       this.openSidenav = false;
-     
+      
     }
     else {
        this.showToggle = 'hide';

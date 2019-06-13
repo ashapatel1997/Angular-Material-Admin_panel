@@ -17,8 +17,8 @@ export class ImagesComponent implements OnInit {
   constructor(private _imageService: ImagesService,
     private _router: Router, private _activatedRoute: ActivatedRoute) { }
   imageList: Images[];//array of images
-  displayedColumns: string[];
-  dataSource;
+  displayedColumns: string[]; //string array to display columns in table
+  dataSource; //mat-table data source for images array
   
   fetchImage: Images; //fetch image to display in slider
   imgUrl = '';
@@ -58,20 +58,7 @@ export class ImagesComponent implements OnInit {
       this.length = this.imageList.length;
       this.getNextImage(this.imageIndex);
     }
-
-
-
-
-
-     
-     
-
-    
-    
   }
-
-  //test
-  description: string = "Guide to the Galaxy has a few things to say on the subject of towels. A towel, it says, is about the most massively useful thing an interstellar hitch hiker can have.";
 
  
   //delete image
@@ -82,7 +69,7 @@ export class ImagesComponent implements OnInit {
 
     this.length = this.imageList.length;
 
-
+    //if images are not availabe, then display default image
     if (this.length == 0) {
       this.count = false;
       this.imgUrl = 'assets/image-not-available.png';
@@ -98,7 +85,6 @@ export class ImagesComponent implements OnInit {
   editImage(id: number) {
     this._router.navigate(['images/edit-image', id]);
   }
-
 
 
   //  /**
@@ -145,5 +131,4 @@ export class ImagesComponent implements OnInit {
     this.imgUrl = this.fetchImage.imageUrl;
     this.imgDescription = this.fetchImage.imageDescription;
   }
-  
 }

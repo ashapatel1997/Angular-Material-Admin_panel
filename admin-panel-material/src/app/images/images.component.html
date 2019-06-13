@@ -12,18 +12,14 @@
 
 <!-- image slider card -->
 <mat-card class="image-slider-card p-0">
-  <div class="image-display-section ">
-    <img src="assets/img-1.jpg" class="img"/>
-    <button mat-icon-button class="slider-button-left "><mat-icon class="pr-10">chevron_left</mat-icon></button>
-    <button mat-icon-button class="slider-button-right "><mat-icon class="pr-5">chevron_right</mat-icon></button>
+  <div class="image-display-section z-index-2">
+    <img src="{{imgUrl}}" class="img"/>
+    <button mat-icon-button class="slider-button-left " (click)="getNext(-1)" [disabled]="disabledLeft"><mat-icon class="pr-10">chevron_left</mat-icon></button>
+    <button mat-icon-button class="slider-button-right " (click)="getNext(1)" [disabled]="disabledRight"><mat-icon class="pr-5">chevron_right</mat-icon></button>
   </div>
-  <div class="image-description-section" matTooltip="{{description}}">
+  <div class="image-description-section" matTooltip="{{imgDescription}}">
     <span style="-webkit-box-orient: vertical;">
-      Lorem ipsum dolor sit amet, consetetur
-      sadipscing elitr, sed diam nonumy eirmod
-      tempor invidunt ut labore et. Lorem ipsum dolor sit amet, consetetur
-      sadipscing elitr, sed diam nonumy eirmod
-      tempor invidunt ut labore et.
+      {{imgDescription}}
     </span>
   </div>
 
@@ -32,7 +28,7 @@
 
 
 
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z2">
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z2" *ngIf="count">
 
 
 
@@ -51,13 +47,13 @@
 
   <ng-container matColumnDef="editOrDelete" >
     <th mat-header-cell *matHeaderCellDef></th>
-    <td mat-cell *matCellDef="let row" >
+    <td mat-cell *matCellDef="let image" >
       <button mat-icon-button [matMenuTriggerFor]="menu"  ><mat-icon>more_vert</mat-icon></button>
       <mat-menu #menu  xPosition="before">
-        <button  mat-menu-item  >
+        <button  mat-menu-item  (click)="editImage(image.id)">
           <mat-icon >edit</mat-icon> Edit
         </button>
-        <button mat-menu-item >
+        <button mat-menu-item (click)="deleteImage(image.id)">
           <mat-icon>delete_forever</mat-icon> Delete
         </button>
       </mat-menu>
@@ -68,3 +64,5 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 
 </table>
+
+

@@ -13,10 +13,11 @@ import { ReportsComponent } from './reports/reports.component';
 import { Report1Component } from './reports/report1/report1.component';
 import { Report2Component } from './reports/report2/report2.component';
 import { AddUserComponent } from './users/add-user/add-user.component';
-import { CancelDialogComponent } from './users/cancel-dialog.component';
+//import { CancelDialogComponent } from './users/cancel-dialog.component';
 import { CdkColumnDef } from '@angular/cdk/table';
 import { AddImageComponent } from './images/add-image/add-image.component';
-
+import { CancelDialogComponent } from '../app/dialog/cancel-dialog/cancel-dialog.component';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,8 @@ import { AddImageComponent } from './images/add-image/add-image.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModuleModule
+    SharedModuleModule,
+    ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' })
   ],
   providers: [CdkColumnDef],
   entryComponents: [CancelDialogComponent],

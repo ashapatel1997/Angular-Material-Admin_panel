@@ -16,7 +16,9 @@ const routes: Routes = [
 
   { path: 'images', component: ImagesComponent },
   { path: 'images/add-image', component: AddImageComponent },
- 
+  { path: 'images/edit-image/:id', component: AddImageComponent },
+ // { path: 'images/edit-image', component: AddImageComponent },
+
   //{ path: 'reports', component: ReportsComponent },
   { path: 'reports/report1', component: Report1Component },
   { path: 'reports/report2', component: Report2Component }

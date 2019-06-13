@@ -9,98 +9,96 @@
 
 <mat-card class="add-user-form-card p-0 ">
   
-    <mat-horizontal-stepper class="add-user-stepper" linear="true">
+  <mat-horizontal-stepper class="add-user-stepper" linear="true">
 
-      <mat-step class="add-personal-details" [stepControl]="personalDetailsFormGroup" linear="true" state="home">
-        <ng-template matStepLabel matStepperIcon="edit">Personal Details</ng-template>
+    <mat-step class="add-personal-details" [stepControl]="personalDetailsFormGroup" linear="true" state="home">
+      <ng-template matStepLabel matStepperIcon="edit">Personal Details</ng-template>
+      <mat-divider></mat-divider>
+
+      <form [formGroup]="personalDetailsFormGroup" class="personal-details-form">
+        <mat-form-field class="form-field">
+          <input matInput placeholder="User Name" formControlName="userNameControl" required autocomplete="off" />
+          <mat-error *ngIf="personalDetailsFormGroup.get('userNameControl').hasError('required')">Please enter a user name</mat-error>
+        </mat-form-field>
+
+
+        <mat-form-field class="form-field">
+          <input matInput placeholder="Email" type="email" formControlName="emailControl" required autocomplete="off" />
+          <mat-error *ngIf="personalDetailsFormGroup.get('emailControl').hasError('email')
+                       && !personalDetailsFormGroup.get('emailControl').hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="personalDetailsFormGroup.get('emailControl').hasError('required')">
+            Email is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-field">
+          <textarea matInput placeholder="Address"></textarea>
+        </mat-form-field>
+
+        <mat-form-field class="form-field">
+          <input matInput placeholder="Date Of Birth" [matDatepicker]="picker" formControlName="dobControl" required />
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="personalDetailsFormGroup.get('dobControl').hasError('required')">
+            Please select you birth date
+          </mat-error>
+        </mat-form-field>
+
+        <mat-radio-group class="gender-radio-group">
+          <mat-radio-button value="1" class="gender-value">Male</mat-radio-button>
+          <mat-radio-button value="2" class="gender-value">Female</mat-radio-button>
+
+        </mat-radio-group>
+
+
+      </form>
+
+    </mat-step>
+    <!--stepper 2 for academic details-->
+    <mat-step class="add-academic-details">
+      <ng-template matStepLabel>Academic Details</ng-template>
+
+      <form>
+
         <mat-divider></mat-divider>
 
-        <form [formGroup]="personalDetailsFormGroup" class="personal-details-form">
-          <mat-form-field class="form-field">
-            <input matInput placeholder="User Name" formControlName="userNameControl" required autocomplete="off" />
-            <mat-error *ngIf="personalDetailsFormGroup.get('userNameControl').hasError('required')">Please enter a user name</mat-error>
-          </mat-form-field>
+        <mat-form-field class="form-field">
+          <mat-select placeholder="Degree">
+            <mat-option matPrefix *ngFor="let name of degree" [value]="name.degree">
+              {{name.degree}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="form-field">
+          <mat-select placeholder="Detaprtment">
+            <mat-option *ngFor="let dept of departments" [value]="dept.value">
+              {{dept.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
 
 
-          <mat-form-field class="form-field">
-            <input matInput placeholder="Email" type="email" formControlName="emailControl" required autocomplete="off" />
-            <mat-error *ngIf="personalDetailsFormGroup.get('emailControl').hasError('email')
-                       && !personalDetailsFormGroup.get('emailControl').hasError('required')">
-              Please enter a valid email address
-            </mat-error>
-            <mat-error *ngIf="personalDetailsFormGroup.get('emailControl').hasError('required')">
-              Email is required
-            </mat-error>
-          </mat-form-field>
 
-          <mat-form-field class="form-field">
-            <textarea matInput placeholder="Address"></textarea>
-          </mat-form-field>
+        <div class="languages-known-section">
+          <label>Languages known:</label>
+          <mat-checkbox class="languages-known-checkbox">Gujarati</mat-checkbox>
+          <mat-checkbox class="languages-known-checkbox">Hindi</mat-checkbox>
+          <mat-checkbox class="languages-known-checkbox">English</mat-checkbox>
+        </div>
 
-          <mat-form-field class="form-field">
-            <input matInput placeholder="Date Of Birth" [matDatepicker]="picker" formControlName="dobControl" required />
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-            <mat-error *ngIf="personalDetailsFormGroup.get('dobControl').hasError('required')">
-              Please select you birth date
-            </mat-error>
-          </mat-form-field>
+        <div class="form-save-cancel-button">
 
-          <mat-radio-group class="gender-radio-group" >
-            <mat-radio-button value="1" class="gender-value">Male</mat-radio-button>
-            <mat-radio-button value="2" class="gender-value">Female</mat-radio-button>
+          <button mat-stroked-button color="primary" class="form-save-button"><mat-icon>save</mat-icon>Save</button>
+          <button mat-stroked-button class="form-cancel-button" (click)="openDialog()"><mat-icon>cancel</mat-icon>Cancel</button>
+        </div>
+      </form>
 
-          </mat-radio-group>
-          <!--<mat-error *ngIf="personalDetailsFormGroup.get('genderControl').hasError('required')">
-    <span>Please select gender</span>
-  </mat-error>-->
-        
-        </form>
-      </mat-step>
+    </mat-step>
 
-      <mat-step class="add-academic-details">
-        <ng-template matStepLabel>Academic Details</ng-template>
-
-        <form>
-
-          <mat-divider></mat-divider>
-
-          <mat-form-field class="form-field">
-            <mat-select placeholder="Degree">
-              <mat-option matPrefix *ngFor="let name of degree" [value]="name.degree">
-                {{name.degree}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-
-          <mat-form-field class="form-field">
-            <mat-select placeholder="Detaprtment">
-              <mat-option *ngFor="let dept of departments" [value]="dept.value">
-                {{dept.name}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-
-
-       
-          <div class="languages-known-section">
-            <label>Languages known:</label>
-            <mat-checkbox class="languages-known-checkbox">Gujarati</mat-checkbox>
-            <mat-checkbox class="languages-known-checkbox">Hindi</mat-checkbox>
-            <mat-checkbox class="languages-known-checkbox">English</mat-checkbox>
-          </div>
-
-          <div class="form-save-cancel-button">
-
-            <button mat-stroked-button color="primary" class="form-save-button"><mat-icon>save</mat-icon>Save</button>
-            <button mat-stroked-button class="form-cancel-button" (click)="openDialog()"><mat-icon>cancel</mat-icon>Cancel</button>
-          </div>
-        </form>
-       
-
-      </mat-step>
-
-    </mat-horizontal-stepper>
+  </mat-horizontal-stepper>
   
 </mat-card>
 

@@ -11,7 +11,7 @@
       mat-icon { font-size: 30px; }
     }
   }
-  /*image description section in slider*/ .image-description-section { position: absolute; z-index: 999;width:$percent-100; cursor: pointer; top: $percent-75; width: $percent-90; margin:$percent-0 $percent-5;
+  /*image description section in slider*/ .image-description-section { position: absolute; ;width:$percent-90; cursor: pointer; top: $percent-75; margin:$percent-0 $percent-5;
     span {
       padding:3px 0px;
       @include multi-line-ellipsis(15px,1.5,2)
@@ -51,3 +51,11 @@ table { width: $percent-60; margin-left: $percent-20; margin-bottom: $percent-5;
 
 
 
+/*styles for the image slider card when screen size(>=768px and <=1024px)*/
+@media only screen and (max-width:1024px) and (min-width:758px) {
+  body{
+    overflow:auto;
+  }
+  .image-slider-card { min-height: $percent-30; width: $percent-50; margin-left: $percent-25; }
+  table { width: $percent-90; margin-left: $percent-5; }
+}

@@ -1,8 +1,31 @@
 @import '../../../styles.scss';
 
 .add-image-form-card { width: $percent-50; margin-left: $percent-25; margin-top: 20px;
-  .add-image-form {padding:30px;
+  .add-image-form { padding: 30px;
     .form-field { display: block; }
+    .saveCancelBtn { margin-bottom: $percent-0;
+      button { margin-right: 10px;
+        mat-icon { font-size: 20px; }
+      }
+    }
   }
 }
+
+
+@media only screen and (max-width:425px)
+{
+  .add-image-form-card { width: $percent-90; margin-left: $percent-5; margin-top: 20px;
+    .add-image-form { padding: 30px;
+      .form-field { display: block; }
+      .saveCancelBtn { margin-bottom: $percent-0;
+        button { margin-right: 10px; 
+          &[disabled] { cursor: no-drop!important;  }
+          mat-icon { font-size: 20px; }
+        }
+      }
+    }
+  }
+}
+
+
 

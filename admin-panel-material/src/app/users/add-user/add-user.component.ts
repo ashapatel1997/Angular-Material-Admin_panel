@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
-import { CancelDialogComponent } from '../cancel-dialog.component';
+import { CancelDialogComponent } from '../../dialog/cancel-dialog/cancel-dialog.component';
 interface department {
   value?: string;
   name?: string;
@@ -58,7 +58,6 @@ export class AddUserComponent implements OnInit {
 
  
   openDialog() {
-    //this._router.navigateByUrl('/users');
     this._matDialog.open(CancelDialogComponent);
   }
 }

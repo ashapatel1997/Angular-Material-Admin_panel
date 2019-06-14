@@ -12,19 +12,24 @@ export class CancelDialogComponent implements OnInit {
 
   ngOnInit() {
   }
-  url: string;
+  url: string; //to store current route URL
   
   cancel() {
-  
+
+    //fetch current route url
     this.url = this._router.url;
-   
+
+   //if route url starts with "/images" then navinagtio to images page
     if (this.url.startsWith("/images")) {
       this._router.navigateByUrl('/images');
     }
 
+    //if route url starts with "/users" then navinagtio to users page
     if (this.url.startsWith("/users")) {
       this._router.navigateByUrl('/users');
     }
+
+    //close dialog
     this._matDialog.closeAll();
   }
 }

@@ -5,7 +5,6 @@
 .admin-panel-top-header {
   background-color: $dark-blue;
   color: white;
-  // z-index: 2; //to disply shadow over the other content
   box-shadow: 0px 0px 5px black; //x-position y-position shadow-sharpness color
 
   .header-right-menu-icon {
@@ -13,12 +12,9 @@
   }
 }
 
-
 /*admin panel bottom section (sidenav & content)*/
 .bottom-section {
-
   height: calc(100vh - 50px);
-
   //bottom section left sidenav
   .left-sidenav {
     width: 150px;
@@ -26,7 +22,6 @@
   }
 
 }
-
 
 //bottom section left sidenav list
 .leftSidenav {
@@ -52,9 +47,6 @@
     }
   }
 }
-
-
-
 
 //styles applied to the elements upto 768px screen size
 @media only screen and (max-width:768px) {

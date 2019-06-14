@@ -3,8 +3,7 @@ import { ImagesService } from './images.service';
 import { Images } from './images';
 import { DeleteConfirmDialogComponent } from '../dialog/delete-confirm-dialog/delete-confirm-dialog.component';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MatTableDataSource, MatDialog, MatDialogConfig, MatDialogClose, MatPaginator } from '@angular/material';
-import { MatSnackBarRef, MatSnackBar } from '@angular/material';
+import { MatSnackBarRef, MatSnackBar ,MatTableDataSource, MatDialog, MatDialogConfig, MatDialogClose, MatPaginator, MatSort } from '@angular/material';
 
 
 
@@ -14,10 +13,6 @@ import { MatSnackBarRef, MatSnackBar } from '@angular/material';
   styleUrls: ['./images.component.scss'],
 
 })
-
-
-
-
 
 
 export class ImagesComponent implements OnInit {
@@ -30,6 +25,7 @@ export class ImagesComponent implements OnInit {
   //@ViewChild(MatPaginator) paginator: MatPaginator;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
   totaleLength = 50;
   pageSize = 2;
@@ -68,11 +64,16 @@ export class ImagesComponent implements OnInit {
       this.count = true;
       this.imageList = this._imageService.getImages();
 
-      
+      //column reference 
       this.displayedColumns = ['imageUrl', 'imageDescription', 'editOrDelete'];
+      //fetch data from images class in dataSource
       this.dataSource = new MatTableDataSource<Images>(this.imageList);
+
+      ////pagination and sotring of table data
       this.dataSource.paginator = this.paginator;
-     
+      this.dataSource.sort = this.sort; //not working due to *ngIf condition
+
+      //fetch first image from list, to display in slider
       this.fetchImage = this._imageService.getFetchedImage(0);
 
       this.imageIndex = 1;
@@ -98,6 +99,7 @@ export class ImagesComponent implements OnInit {
           //refresh data source after deleteing image from table 
           this.dataSource = new MatTableDataSource<Images>(this.imageList);
           this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
           this.length = this.imageList.length;
 
           //if images are not availabe, then display default image

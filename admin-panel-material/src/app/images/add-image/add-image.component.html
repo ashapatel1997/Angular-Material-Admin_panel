@@ -1,3 +1,4 @@
+<!--header for add-image page-->
 <mat-grid-list cols="1" rowHeight="50px" class="selected-listItem-header">
   <mat-grid-tile class="header-grid-tile">
     <span class="left-heading">Add Image</span>
@@ -7,6 +8,7 @@
   </mat-grid-tile>
 </mat-grid-list>
 
+<!--form to add or edit image-->
 <mat-card class="add-image-form-card p-0">
   <form class="add-image-form" [formGroup]="addImageGroup" (ngSubmit)="saveImage()">
     <mat-form-field class="form-field">
@@ -19,9 +21,7 @@
       <button mat-stroked-button color="primary" [disabled]="addImageGroup.invalid"><mat-icon>save</mat-icon>Save</button>
       <button mat-stroked-button (mousedown)="openDialog()"><mat-icon>cancel</mat-icon>Cancel</button>
     </div>
-   
   </form>
-
 </mat-card>
 
 

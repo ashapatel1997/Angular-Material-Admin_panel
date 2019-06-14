@@ -1,27 +1,33 @@
+<!--header of users page content-->
 <mat-grid-list cols="1" rowHeight="50px" class="selected-listItem-header">
   <mat-grid-tile class="header-grid-tile">
     <span class="left-heading">Add User</span>
+    <!--back button that renders to users page-->
     <button class="content-header-right-button" matTooltip="Back" mat-icon-button routerLink="/users" target="_parent" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
       <mat-icon>arrow_back</mat-icon>
     </button>
   </mat-grid-tile>
 </mat-grid-list>
 
+<!--card containing add-user form-->
 <mat-card class="add-user-form-card p-0 ">
 
+  <!--horizontal stepper to divide form in multiple tabs-->
   <mat-horizontal-stepper class="add-user-stepper" linear="true">
-    
+    <!--stepper 1 for personal detaila form-->
     <mat-step #myStep class="add-personal-details" label="Personal Details" [stepControl]="personalDetailsFormGroup" linear="true">
 
       <mat-divider></mat-divider>
-
+      <!-- personal details form -->
       <form [formGroup]="personalDetailsFormGroup" class="personal-details-form">
+
+        <!--username form field-->
         <mat-form-field class="form-field">
           <input matInput placeholder="User Name" formControlName="userNameControl" required autocomplete="off" />
           <mat-error *ngIf="personalDetailsFormGroup.get('userNameControl').hasError('required')">User name is required</mat-error>
         </mat-form-field>
 
-
+        <!--email address form field-->
         <mat-form-field class="form-field">
           <input matInput placeholder="Email" type="email" formControlName="emailControl" required autocomplete="off" />
           <mat-error *ngIf="personalDetailsFormGroup.get('emailControl').hasError('email')
@@ -33,10 +39,12 @@
           </mat-error>
         </mat-form-field>
 
+        <!--address form field-->
         <mat-form-field class="form-field">
           <textarea matInput placeholder="Address"></textarea>
         </mat-form-field>
 
+        <!--date of birth form field-->
         <mat-form-field class="form-field">
           <input matInput placeholder="Date Of Birth" [matDatepicker]="picker" formControlName="dobControl" required />
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -46,24 +54,25 @@
           </mat-error>
         </mat-form-field>
 
+        <!--radio button for gender selection-->
         <mat-radio-group class="gender-radio-group">
           <mat-radio-button value="1" class="gender-value">Male</mat-radio-button>
           <mat-radio-button value="2" class="gender-value">Female</mat-radio-button>
 
         </mat-radio-group>
-
-
       </form>
 
+      
     </mat-step>
     <!--stepper 2 for academic details-->
     <mat-step class="add-academic-details" label="Academic Details">
 
-
+      <!--academic details form-->
       <form>
 
         <mat-divider></mat-divider>
 
+        <!--form field for degree selection-->
         <mat-form-field class="form-field">
           <mat-select placeholder="Degree">
             <mat-option matPrefix *ngFor="let name of degree" [value]="name.degree">
@@ -72,6 +81,7 @@
           </mat-select>
         </mat-form-field>
 
+        <!--form field for department selection-->
         <mat-form-field class="form-field">
           <mat-select placeholder="Detaprtment">
             <mat-option *ngFor="let dept of departments" [value]="dept.value">
@@ -81,7 +91,7 @@
         </mat-form-field>
 
 
-
+        <!--checkbox to select languages known-->
         <div class="languages-known-section">
           <label>Languages known:</label>
           <mat-checkbox class="languages-known-checkbox">Gujarati</mat-checkbox>
@@ -89,8 +99,8 @@
           <mat-checkbox class="languages-known-checkbox">English</mat-checkbox>
         </div>
 
+        <!--form save or cancel button-->
         <div class="form-save-cancel-button">
-
           <button mat-stroked-button color="primary" class="form-save-button"><mat-icon>save</mat-icon>Save</button>
           <button mat-stroked-button class="form-cancel-button" (click)="openDialog()"><mat-icon>cancel</mat-icon>Cancel</button>
         </div>

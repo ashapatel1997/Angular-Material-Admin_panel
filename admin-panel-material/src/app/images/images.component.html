@@ -23,25 +23,25 @@
 
 </mat-card>
 
-<mat-card class="image-list-table p-0">
+<mat-card class="image-list-table p-0" >
   <!--table to display image list with edit delete options-->
-  <table mat-table [dataSource]="dataSource" class=" image-list-table " *ngIf="count">
+  <table mat-table [dataSource]="dataSource"  class=" image-list-table " matSort *ngIf="count">
 
     <!--image URL column-->
     <ng-container matColumnDef="imageUrl">
-      <th mat-header-cell *matHeaderCellDef> Image URL </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Image URL </th>
       <td mat-cell *matCellDef="let image"> {{image.imageUrl}} </td>
     </ng-container>
 
     <!--image description column-->
     <ng-container matColumnDef="imageDescription">
-      <th mat-header-cell *matHeaderCellDef> Image Caption  </th>
+      <th mat-header-cell *matHeaderCellDef > Image Caption  </th>
       <td mat-cell *matCellDef="let image"> {{image.imageDescription}} </td>
     </ng-container>
 
     <!--edit or delete menu item column-->
     <ng-container matColumnDef="editOrDelete">
-      <th mat-header-cell *matHeaderCellDef></th>
+      <th mat-header-cell *matHeaderCellDef ></th>
       <td mat-cell *matCellDef="let image">
         <button mat-icon-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></button>
         <mat-menu #menu xPosition="before">

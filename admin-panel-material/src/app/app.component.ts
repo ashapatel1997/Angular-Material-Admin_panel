@@ -4,15 +4,15 @@ import { Component,OnInit ,ViewChild} from '@angular/core';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+   //width of window when first time loded
   host: { '(window:resize)': 'onResize($event)' }
   
 })
 export class AppComponent {
-  title = 'admin-panel-material';
  
   openSidenav: boolean;  //boolean value to open or close sidenav
   mode: string ; //mode of sidenav (over,side)
-  arrowPosition: boolean = true; //boolean valu to change arrow of list
+  arrowPosition: boolean = true; //boolean value to change arrow of list
   hide: boolean = false; //boolean value to hide or show the sub options
   showToggle: string;  //show or hide menu icon based on screen size
   activeLink: string; //apply active class to parent is sub option is selected
@@ -20,6 +20,7 @@ export class AppComponent {
 
   
   ngOnInit() {
+    //width of window when it is resized
     this.innerWidth = window.innerWidth;
     this.changeLayout(this.innerWidth);
   }
@@ -33,8 +34,6 @@ export class AppComponent {
       this.arrowPosition = true;
       this.hide = false;
       this.activeLink = '';
-     
-      
     }
     else {
       this.arrowPosition = !this.arrowPosition;
@@ -43,7 +42,6 @@ export class AppComponent {
    
   }
 
-  
   activeParent() {
     this.activeLink = 'active';
   }
@@ -55,12 +53,15 @@ export class AppComponent {
   }
   
   changeLayout(width: any) {
+    /*if window size <= 768px, then hide sidenav and
+    toggle menu button on top of container*/
     if (width <= 768) {
        this.showToggle = 'show';
       this.mode = 'over';
       this.openSidenav = false;
       
     }
+    /*if window size is grater than 768px, then hide menu and show sidenav*/
     else {
        this.showToggle = 'hide';
       this.mode = 'side';

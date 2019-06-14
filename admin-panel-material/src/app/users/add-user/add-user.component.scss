@@ -1,3 +1,4 @@
+/*variable and common styles are defined input "styles.scss"*/
 @import '../../../styles.scss';
 
 /*add user form section*/
@@ -20,6 +21,7 @@
 }
 
 
+/*change width of the card containing add-user form*/
 @media only screen and (max-width:425px) {
   .add-user-form-card { width: $percent-90;
     .languages-known-section {

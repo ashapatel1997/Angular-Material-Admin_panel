@@ -26,17 +26,17 @@ import {
   MatSelectModule,
   MatDatepickerModule,
   MatNativeDateModule,
-  MatCheckboxModule,
+  MatCheckboxModule,
   MatCardModule,
   MatDialogModule,
   MatTableModule,
   MatPaginatorModule,
-  MatSnackBarModule
-  
- 
+  MatSnackBarModule,
+  MatSortModule
   }
   from '@angular/material';
 
+//array of imports 
 const modules =
   [ FormsModule,
     ReactiveFormsModule,
@@ -64,16 +64,18 @@ const modules =
     MatDialogModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSortModule
   ];
+
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    ...modules
+    modules
   ],
   exports: [
-    ...modules
+    modules
   ]
 })
 export class SharedModuleModule { }

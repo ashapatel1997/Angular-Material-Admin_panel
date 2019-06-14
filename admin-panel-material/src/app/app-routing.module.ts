@@ -9,26 +9,20 @@ import { Report2Component } from './reports/report2/report2.component';
 import { AddUserComponent } from '../app/users/add-user/add-user.component';
 const routes: Routes = [
   
-  {
-    path: 'users', component: UsersComponent,
-    children: [{ path: 'add-user', component: AddUserComponent },
-    ]
-  },
+  { path: 'users', component: UsersComponent }, //router link for users page
+  
+  { path: 'users/add-user', component: AddUserComponent }, //router link to add-user 
+  { path: '', pathMatch: 'full', redirectTo: '/users' }, //default route when path is not specified
 
-    
-  { path: '', pathMatch: 'full', redirectTo: '/users' },
-
-  { path: 'images', component: ImagesComponent },
-  { path: 'images/add-image', component: AddImageComponent },
-  { path: 'images/edit-image/:id', component: AddImageComponent },
- // { path: 'images/edit-image', component: AddImageComponent },
+  { path: 'images', component: ImagesComponent }, //router link for images page
+  { path: 'images/add-image', component: AddImageComponent },//router link add-image
+  { path: 'images/edit-image/:id', component: AddImageComponent }, //router link to edit selected image (bases on :id)
+ 
 
   //{ path: 'reports', component: ReportsComponent },
-  { path: 'reports/report1', component: Report1Component },
-  { path: 'reports/report2', component: Report2Component }
+  { path: 'reports/report1', component: Report1Component }, //router link for report 1 page
+  { path: 'reports/report2', component: Report2Component } //router link for report 2 page
      
- 
-  
 
 ];
 

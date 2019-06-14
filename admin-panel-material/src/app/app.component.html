@@ -5,15 +5,16 @@
 <head>
 
 </head>
-<!--design part in body tag-->
+<!-- body tag-->
 <body>
 
-  <!--admin panel top  header-->
+ <!--admin panel top  header-->
   <mat-toolbar class="admin-panel-top-header  h-50">
     <!-- header left image and heading -->
     <img src="assets/admin.png" class="h-30 w-30" />
     <h1 class="left-admin-panel-heading  pl-5">Admin Panel</h1>
-  
+
+    <!--spacing between left and right elements of the top header-->
     <span class="spacing"></span>
 
     <!--header right menu option with profile and logout button-->
@@ -32,24 +33,24 @@
   </mat-toolbar>
 
 
-  <!--bottom section-->
+ <!--bottom section-->
   <mat-sidenav-container class="bottom-section">
     <!--side navigation menu-->
     <mat-sidenav class="left-sidenav " #sidenav [mode]="mode" [opened]="openSidenav">
       <mat-nav-list class="leftSidenav">
+        <!--bottom section side navigation menu list items -->
         <ul class="mt-0 pl-0 w-100p">
-          <!--bottom section side menu list items -->
           <li>
-            <a mat-list-item tabindex="-1" routerLink="users" (click)="itemHideShow(1)"   class="selectedClass"  routerLinkActive="active" >Users</a>
+            <a mat-list-item tabindex="-1" routerLink="users" (click)="itemHideShow(1)" class="selectedClass" routerLinkActive="active">Users</a>
           </li>
           <mat-divider></mat-divider>
           <li>
-            <a mat-list-item href="images" tabindex="-1" (click)="itemHideShow(2)"  routerLink="images"  routerLinkActive="active">Images</a>
+            <a mat-list-item href="images" tabindex="-1" (click)="itemHideShow(2)" routerLink="images" routerLinkActive="active">Images</a>
           </li>
 
           <mat-divider></mat-divider>
           <li>
-            <a mat-list-item (click)="itemHideShow(3)"   tabindex="-1"  [ngClass]="activeLink">
+            <a mat-list-item (click)="itemHideShow(3)" tabindex="-1" [ngClass]="activeLink">
               Reports
               <span class="spacing"></span>
 
@@ -59,21 +60,21 @@
 
             <ul *ngIf="hide" class="mt-0 pl-0 w-100p">
               <li>
-                <a mat-list-item tabindex="-1" class="pl-10"  (click)="activeParent()"  routerLink="reports/report1"  routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Report 1</a>
+                <a mat-list-item tabindex="-1" class="pl-10" (click)="activeParent()" routerLink="reports/report1" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Report 1</a>
 
               </li>
-            
+
               <li>
-                <a mat-list-item tabindex="-1" class="pl-10"  (click)="activeParent()" routerLink="reports/report2" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Report 2</a>
+                <a mat-list-item tabindex="-1" class="pl-10" (click)="activeParent()" routerLink="reports/report2" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Report 2</a>
               </li>
-             
+
             </ul>
 
           </li>
           <mat-divider></mat-divider>
 
         </ul>
-       
+
 
       </mat-nav-list>
     </mat-sidenav>

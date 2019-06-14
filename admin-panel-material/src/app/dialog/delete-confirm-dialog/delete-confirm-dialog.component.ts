@@ -10,33 +10,13 @@ import { Images } from '../../images/images';
   styleUrls: ['./delete-confirm-dialog.component.scss']
 })
 export class DeleteConfirmDialogComponent implements OnInit {
-  id: number;
-  imageList: Images[];
-  dataSource: any;
-  constructor(private _router: Router, private _dialogRef: MatDialogRef<DeleteConfirmDialogComponent>, private _matDialog: MatDialog, private _imageService: ImagesService,
-    @Inject(MAT_DIALOG_DATA) data) {
-
-    this.id = data.id;
-    this.imageList = data.imageList;
-    this.dataSource = data.dataSource;
-  }
+ 
+  constructor() {}
  
   ngOnInit() {
    
   }
 
-  //delete() {
-   
-  //  this._imageService.deleteImage(this.id);
-  //  console.log("length of array=", this.imageList.length);
-  //  this.dataSource = new MatTableDataSource(this.imageList);
-  //  console.log("length of data source=", this.dataSource.data);
-  //  this._matDialog.closeAll();
-  //}
-
-
-  cancel() {
-    this._dialogRef.close(false);
-  }
+  
 
 }

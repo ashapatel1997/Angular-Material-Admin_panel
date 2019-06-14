@@ -5,8 +5,8 @@
 .image-slider-card { width: $percent-40; margin: 20px auto;
   .image-display-section {
     .img { width: $percent-100; height: 200px; }
-    .slider-button-left { top: $percent-30; left: 0%; position: absolute; }
-    .slider-button-right { top: $percent-30; right: 0%; position: absolute; }
+    .slider-button-left { top: $percent-30; padding-left: 5px; left: 0%; position: absolute; }
+    .slider-button-right { top: $percent-30; padding-left: 5px; right: 0%; position: absolute; }
   }
   .image-description-section { height: 50px; cursor: pointer;
     span {

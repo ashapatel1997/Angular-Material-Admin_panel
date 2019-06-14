@@ -8,13 +8,11 @@
 </mat-grid-list>
 
 <mat-card class="add-user-form-card p-0 ">
-  
+
   <mat-horizontal-stepper class="add-user-stepper" linear="true">
-    <ng-template matStepperIcon="edit">
-      <mat-icon>check</mat-icon>
-    </ng-template>
-    <mat-step #myStep  class="add-personal-details" label="Personal Details" [stepControl]="personalDetailsFormGroup" linear="true" >
-      
+    
+    <mat-step #myStep class="add-personal-details" label="Personal Details" [stepControl]="personalDetailsFormGroup" linear="true">
+
       <mat-divider></mat-divider>
 
       <form [formGroup]="personalDetailsFormGroup" class="personal-details-form">
@@ -60,7 +58,7 @@
     </mat-step>
     <!--stepper 2 for academic details-->
     <mat-step class="add-academic-details" label="Academic Details">
-     
+
 
       <form>
 
@@ -99,11 +97,10 @@
       </form>
 
     </mat-step>
-  
-  </mat-horizontal-stepper>
-  
-</mat-card>
 
+  </mat-horizontal-stepper>
+
+</mat-card>
 
 
 

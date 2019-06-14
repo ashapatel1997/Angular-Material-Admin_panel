@@ -1,39 +1,29 @@
-
 @import '../../../styles.scss';
-.add-user-form-card { min-height: calc(100vh - 200px); width: $percent-70; left: $percent-15; margin-top: 20px; margin-bottom: 20px;
 
-  .add-user-stepper { width: $percent-90; margin: $percent-0 $percent-5;
-   
+/*add user form section*/
+.add-user-form-card { width: $percent-70; margin: 20px auto;
+  .add-user-stepper { width: $percent-90; margin: 20px auto;
+    .form-field { width: $percent-100; margin: 10px auto; }
     .gender-radio-group {
+
       .gender-value { padding: 20px 20px 0px 0px; }
     }
-
-    .form-field { width: $percent-100; right: $percent-0; margin-top: 10px; }
-
     .languages-known-section { margin: 20px 0px;
       .languages-known-checkbox { margin-left: 10px; }
     }
-    .form-save-cancel-button { margin-top: 40px;
+    .form-save-cancel-button { margin-top: 20px;
       button { margin-right: 10px;
         mat-icon { font-size: 20px; }
       }
     }
   }
 }
-  
-
-
 
 
 @media only screen and (max-width:425px) {
-
-
-  .add-user-form-card { width: $percent-90; left: $percent-5;
-    .languages-known-section { 
-      .languages-known-checkbox { display:block; }
+  .add-user-form-card { width: $percent-90;
+    .languages-known-section {
+      .languages-known-checkbox { display: block; }
     }
   }
 }
-
-
-

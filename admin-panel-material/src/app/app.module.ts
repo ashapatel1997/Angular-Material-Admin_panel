@@ -18,6 +18,7 @@ import { CdkColumnDef } from '@angular/cdk/table';
 import { AddImageComponent } from './images/add-image/add-image.component';
 import { CancelDialogComponent } from '../app/dialog/cancel-dialog/cancel-dialog.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DeleteConfirmDialogComponent } from './dialog/delete-confirm-dialog/delete-confirm-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     Report2Component,
     AddUserComponent,
     CancelDialogComponent,
-    AddImageComponent
+    AddImageComponent,
+    DeleteConfirmDialogComponent
     
    
   ],

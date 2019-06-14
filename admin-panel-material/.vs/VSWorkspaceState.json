@@ -4,8 +4,12 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\images",
-    "\\src\\app\\shared-module",
-    "\\src\\assets"
+    "\\src\\app\\images\\add-image",
+    "\\src\\app\\reports",
+    "\\src\\app\\reports\\report1",
+    "\\src\\app\\reports\\report2",
+    "\\src\\app\\users",
+    "\\src\\app\\users\\add-user"
   ],
   "SelectedNode": "\\src\\app\\images\\images.component.html",
   "PreviewInSolutionExplorer": false

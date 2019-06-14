@@ -1,9 +1,8 @@
-
 <!--selected menu item content header-->
 <mat-grid-list cols="1" rowHeight="50px" class="selected-listItem-header">
   <mat-grid-tile class="header-grid-tile">
     <span class="left-heading">Image Slider</span>
-    <button class="content-header-right-button" matTooltip="Add New Image" mat-icon-button  routerLink="/images/add-image" target="_parent" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+    <button class="content-header-right-button" matTooltip="Add New Image" mat-icon-button routerLink="/images/add-image" target="_parent" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
       <mat-icon>add</mat-icon>
     </button>
   </mat-grid-tile>
@@ -13,7 +12,7 @@
 <!-- image slider card -->
 <mat-card class="image-slider-card p-0">
   <div class="image-display-section z-index-2">
-    <img src="{{imgUrl}}" class="img"/>
+    <img src="{{imgUrl}}" class="img" />
     <button mat-icon-button class="slider-button-left " (click)="getNext(-1)" [disabled]="disabledLeft"><mat-icon class="pr-10">chevron_left</mat-icon></button>
     <button mat-icon-button class="slider-button-right " (click)="getNext(1)" [disabled]="disabledRight"><mat-icon class="pr-5">chevron_right</mat-icon></button>
   </div>
@@ -28,11 +27,11 @@
 
 
 
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z2" *ngIf="count">
+<table mat-table [dataSource]="dataSource" class=" image-list-table mat-elevation-z2" *ngIf="count">
 
 
 
-  
+
 
   <ng-container matColumnDef="imageUrl">
     <th mat-header-cell *matHeaderCellDef> Image URL </th>
@@ -45,13 +44,13 @@
   </ng-container>
 
 
-  <ng-container matColumnDef="editOrDelete" >
+  <ng-container matColumnDef="editOrDelete">
     <th mat-header-cell *matHeaderCellDef></th>
-    <td mat-cell *matCellDef="let image" >
-      <button mat-icon-button [matMenuTriggerFor]="menu"  ><mat-icon>more_vert</mat-icon></button>
-      <mat-menu #menu  xPosition="before">
-        <button  mat-menu-item  (click)="editImage(image.id)">
-          <mat-icon >edit</mat-icon> Edit
+    <td mat-cell *matCellDef="let image">
+      <button mat-icon-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></button>
+      <mat-menu #menu xPosition="before">
+        <button mat-menu-item (click)="editImage(image.id)">
+          <mat-icon>edit</mat-icon> Edit
         </button>
         <button mat-menu-item (click)="deleteImage(image.id)">
           <mat-icon>delete_forever</mat-icon> Delete

@@ -11,7 +11,10 @@ body,html {
 
 
 /*colors*/
-.alert{color:red;}
+$blue: #004080;
+$dark-blue: #00264d;
+
+
 
 /*variables*/
 $large-font:18px;
@@ -27,6 +30,7 @@ $percent-35: 35%;
 $percent-40: 40%;
 $percent-50: 50%;
 $percent-60: 60%;
+$percent-65:65%;
 $percent-70: 70%;
 $percent-75: 75%;
 $percent-85: 85%;
@@ -74,7 +78,8 @@ mat-nav-list { padding-top: 0px;}
 .show { display: block; } //show element
 .hide { display: none; } //hide element
 .spacing { flex: auto; } //spacing between elements
-
+.alert { color: red; }
+.blue-snackbar { background-color: $blue;min-width: 50px !important; }
 
 //common style for bottom section content header
 .selected-listItem-header { width: 98%; margin: 0 auto;

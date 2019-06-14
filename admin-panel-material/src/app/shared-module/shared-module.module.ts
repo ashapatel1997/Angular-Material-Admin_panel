@@ -30,7 +30,8 @@ import {
   MatCardModule,
   MatDialogModule,
   MatTableModule,
-  MatPaginatorModule
+  MatPaginatorModule,
+  MatSnackBarModule
   
  
   }
@@ -62,8 +63,8 @@ const modules =
     MatCardModule,
     MatDialogModule,
     MatTableModule,
-    MatPaginatorModule
-    
+    MatPaginatorModule,
+    MatSnackBarModule
   ];
 @NgModule({
   declarations: [],

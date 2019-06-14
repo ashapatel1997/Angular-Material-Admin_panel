@@ -3,7 +3,7 @@
 
 /*admin panel stop header styles*/
 .admin-panel-top-header {
-  background-color: #00264d;
+  background-color: $dark-blue;
   color: white;
   // z-index: 2; //to disply shadow over the other content
   box-shadow: 0px 0px 5px black; //x-position y-position shadow-sharpness color
@@ -22,7 +22,7 @@
   //bottom section left sidenav
   .left-sidenav {
     width: 150px;
-    background-color: #004080;
+    background-color: $blue;
   }
 
 }

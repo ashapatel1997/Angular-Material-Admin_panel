@@ -8,7 +8,6 @@
   </mat-grid-tile>
 </mat-grid-list>
 
-
 <!-- image slider card -->
 <mat-card class="image-slider-card p-0">
   <div class="image-display-section z-index-2">
@@ -24,48 +23,50 @@
 
 </mat-card>
 
+<mat-card class="image-list-table p-0">
+  <!--table to display image list with edit delete options-->
+  <table mat-table [dataSource]="dataSource" class=" image-list-table " *ngIf="count">
+
+    <!--image URL column-->
+    <ng-container matColumnDef="imageUrl">
+      <th mat-header-cell *matHeaderCellDef> Image URL </th>
+      <td mat-cell *matCellDef="let image"> {{image.imageUrl}} </td>
+    </ng-container>
+
+    <!--image description column-->
+    <ng-container matColumnDef="imageDescription">
+      <th mat-header-cell *matHeaderCellDef> Image Caption  </th>
+      <td mat-cell *matCellDef="let image"> {{image.imageDescription}} </td>
+    </ng-container>
+
+    <!--edit or delete menu item column-->
+    <ng-container matColumnDef="editOrDelete">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let image">
+        <button mat-icon-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></button>
+        <mat-menu #menu xPosition="before">
+          <button mat-menu-item (click)="editImage(image.id)">
+            <mat-icon>edit</mat-icon> Edit
+          </button>
+          <button mat-menu-item (click)="deleteImage(image.id)">
+            <mat-icon>delete_forever</mat-icon> Delete
+          </button>
+        </mat-menu>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+    <!--table pagination-->
+
+  </table>
 
 
+  <mat-paginator #paginator [length]="totaleLength"
+                 [pageSize]="pageSize"
+                 [pageSizeOptions]="pageSizeOptions">
 
-<table mat-table [dataSource]="dataSource" class=" image-list-table mat-elevation-z2" *ngIf="count">
-
-
-
-
-
-  <ng-container matColumnDef="imageUrl">
-    <th mat-header-cell *matHeaderCellDef> Image URL </th>
-    <td mat-cell *matCellDef="let image"> {{image.imageUrl}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="imageDescription">
-    <th mat-header-cell *matHeaderCellDef> Image Caption  </th>
-    <td mat-cell *matCellDef="let image"> {{image.imageDescription}} </td>
-  </ng-container>
-
-
-  <ng-container matColumnDef="editOrDelete">
-    <th mat-header-cell *matHeaderCellDef></th>
-    <td mat-cell *matCellDef="let image">
-      <button mat-icon-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></button>
-      <mat-menu #menu xPosition="before">
-        <button mat-menu-item (click)="editImage(image.id)">
-          <mat-icon>edit</mat-icon> Edit
-        </button>
-        <button mat-menu-item (click)="deleteImage(image.id)">
-          <mat-icon>delete_forever</mat-icon> Delete
-        </button>
-      </mat-menu>
-    </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-
-
-  <mat-paginator showFirstLastButtons [pageSizeOptions]="[5, 10, 20]">
 
   </mat-paginator>
-</table>
-
-
+</mat-card>

@@ -1,28 +1,44 @@
-import { Component, OnInit, ViewEncapsulation,ViewChild } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
 import { ImagesService } from './images.service';
 import { Images } from './images';
 import { DeleteConfirmDialogComponent } from '../dialog/delete-confirm-dialog/delete-confirm-dialog.component';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MatTableDataSource, MatDialog, MatDialogConfig, MatDialogClose } from '@angular/material';
+import { MatTableDataSource, MatDialog, MatDialogConfig, MatDialogClose, MatPaginator } from '@angular/material';
+import { MatSnackBarRef, MatSnackBar } from '@angular/material';
+
+
 
 @Component({
   selector: 'app-images',
   templateUrl: './images.component.html',
   styleUrls: ['./images.component.scss'],
-  
+
 })
 
+
+
+
+
+
 export class ImagesComponent implements OnInit {
-  
+
   constructor(private _matDialog: MatDialog, private _imageService: ImagesService,
-    private _router: Router, private _activatedRoute: ActivatedRoute) { }
+    private _router: Router, private _activatedRoute: ActivatedRoute, private _matSnackBar: MatSnackBar) { }
 
+  //dataSource: MatTableDataSource<PeriodicElement>;
+  //displayedColumns: string[];
+  //@ViewChild(MatPaginator) paginator: MatPaginator;
 
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
+  totaleLength = 50;
+  pageSize = 2;
+  pageSizeOptions: number[] = [2, 5, 10, 20];
 
   imageList: Images[];//array of images
   displayedColumns: string[]; //string array to display columns in table
   dataSource; //mat-table data source for images array
-  
+
   fetchImage: Images; //fetch image to display in slider
   imgUrl = '';
   imgDescription = '';
@@ -36,9 +52,8 @@ export class ImagesComponent implements OnInit {
   if length is zero then count = false and hide table*/
   count: boolean;
 
- 
   ngOnInit() {
-
+  
     //if length of array is zero then display default image and disable slider buttons
     if (this._imageService.getLength() == 0) {
       this.count = false;
@@ -52,9 +67,12 @@ export class ImagesComponent implements OnInit {
     else {
       this.count = true;
       this.imageList = this._imageService.getImages();
+
+      
       this.displayedColumns = ['imageUrl', 'imageDescription', 'editOrDelete'];
-      this.dataSource = this.imageList;
-      console.log(this.dataSource);
+      this.dataSource = new MatTableDataSource<Images>(this.imageList);
+      this.dataSource.paginator = this.paginator;
+     
       this.fetchImage = this._imageService.getFetchedImage(0);
 
       this.imageIndex = 1;
@@ -64,47 +82,43 @@ export class ImagesComponent implements OnInit {
     }
   }
 
-  
   //delete image
-  deleteImage(id: number)
-  {
+  deleteImage(id: number) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = {
-                          id: id,
-                          imageList: this.imageList,
-                          dataSource:this.dataSource
-                        }
+      id: id,
+      imageList: this.imageList,
+      dataSource: this.dataSource
+    }
     this._matDialog.open(DeleteConfirmDialogComponent, dialogConfig)
       .afterClosed().subscribe(res => {
         //if response from mat-dialog-close is true then delete item
-        if (res == true)
-        {
+        if (res == true) {
           this._imageService.deleteImage(id);
           //refresh data source after deleteing image from table 
-          this.dataSource = new MatTableDataSource(this.imageList);
+          this.dataSource = new MatTableDataSource<Images>(this.imageList);
+          this.dataSource.paginator = this.paginator;
           this.length = this.imageList.length;
 
           //if images are not availabe, then display default image
-          if (this.length == 0)
-          {
+          if (this.length == 0) {
             this.count = false;
             this.imgUrl = 'assets/image-not-available.png';
             this.imgDescription = '';
           }
-          else
-          {
+          else {
             this.imageIndex = 1;
             this.getNextImage(this.imageIndex);
 
           }
+          this._matSnackBar.open('Image successfully deleted', '', { duration: 1000, verticalPosition: 'bottom', horizontalPosition: 'right', panelClass: ['blue-snackbar'] });
         }
-        else
-        {
-          console.log('delete not');
-        }
-       });
-   }
-  
+      
+      });
+
+
+  }
+
 
   //edit selected image
   editImage(id: number) {
@@ -117,17 +131,17 @@ export class ImagesComponent implements OnInit {
   //   * @param n is +1(if user clicks on right slider button) or
   //   *              -1 (if user clicks on left slider button)
   //   */
-
   getNext(n) {
     this.imageIndex += n;
     this.getNextImage(this.imageIndex);
   }
 
+
+
   /**get next or previous image to display in slider
       * 
       * @param imageIndex is index+1 
   */
-
   getNextImage(imageIndex: number) {
 
     //disable left slider button if index is 0
@@ -156,4 +170,7 @@ export class ImagesComponent implements OnInit {
     this.imgUrl = this.fetchImage.imageUrl;
     this.imgDescription = this.fetchImage.imageDescription;
   }
+
+
 }
+

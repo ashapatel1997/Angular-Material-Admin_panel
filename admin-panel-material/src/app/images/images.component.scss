@@ -16,17 +16,23 @@
 }
 
 /*image list table with edit and delete options*/
-.image-list-table { width: $percent-60; margin:20px auto;
-  th {
-    font-weight: bold;
-    color: black;
-    font-size: 15px;
-    @include table-content-padding();
-  }
-  td {
-    @include table-content-padding();
+.image-list-table {
+  width:$percent-70;margin:20px auto;
+  .image-list-table { width: $percent-100; 
+    th {
+      font-weight: bold;
+      color: black;
+      font-size: 15px;
+      @include table-content-padding();
+    }
+    td {
+      @include table-content-padding();
+    }
   }
 }
+
+
+
 
 /*styles for the image slider card when screen size(<=425px )*/
 @media only screen and (max-width:425px) {

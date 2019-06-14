@@ -9,8 +9,12 @@ import { Report2Component } from './reports/report2/report2.component';
 import { AddUserComponent } from '../app/users/add-user/add-user.component';
 const routes: Routes = [
   
-  {path: 'users', component: UsersComponent},
-  { path:'users/add-user', component: AddUserComponent },
+  {
+    path: 'users', component: UsersComponent,
+    children: [{ path: 'add-user', component: AddUserComponent },
+    ]
+  },
+
     
   { path: '', pathMatch: 'full', redirectTo: '/users' },
 

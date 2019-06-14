@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewEncapsulation,ViewChild } from '@angular/core';
 import { ImagesService } from './images.service';
 import { Images } from './images';
-
+import { DeleteConfirmDialogComponent } from '../dialog/delete-confirm-dialog/delete-confirm-dialog.component';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MatTableDataSource, MatPaginator } from '@angular/material';
+import { MatTableDataSource, MatDialog, MatDialogConfig, MatDialogClose } from '@angular/material';
 
 @Component({
   selector: 'app-images',
@@ -14,10 +14,11 @@ import { MatTableDataSource, MatPaginator } from '@angular/material';
 
 export class ImagesComponent implements OnInit {
   
-
-
-  constructor(private _imageService: ImagesService,
+  constructor(private _matDialog: MatDialog, private _imageService: ImagesService,
     private _router: Router, private _activatedRoute: ActivatedRoute) { }
+
+
+
   imageList: Images[];//array of images
   displayedColumns: string[]; //string array to display columns in table
   dataSource; //mat-table data source for images array
@@ -35,7 +36,7 @@ export class ImagesComponent implements OnInit {
   if length is zero then count = false and hide table*/
   count: boolean;
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+ 
   ngOnInit() {
 
     //if length of array is zero then display default image and disable slider buttons
@@ -53,7 +54,7 @@ export class ImagesComponent implements OnInit {
       this.imageList = this._imageService.getImages();
       this.displayedColumns = ['imageUrl', 'imageDescription', 'editOrDelete'];
       this.dataSource = this.imageList;
-     
+      console.log(this.dataSource);
       this.fetchImage = this._imageService.getFetchedImage(0);
 
       this.imageIndex = 1;
@@ -63,29 +64,47 @@ export class ImagesComponent implements OnInit {
     }
   }
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator
-  }
+  
   //delete image
-  deleteImage(id: number) {
-    
-    this.index = this._imageService.deleteImage(id);
-    //refresh data source after deleteing image from table 
-    this.dataSource = new MatTableDataSource(this.imageList);   
+  deleteImage(id: number)
+  {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {
+                          id: id,
+                          imageList: this.imageList,
+                          dataSource:this.dataSource
+                        }
+    this._matDialog.open(DeleteConfirmDialogComponent, dialogConfig)
+      .afterClosed().subscribe(res => {
+        //if response from mat-dialog-close is true then delete item
+        if (res == true)
+        {
+          this._imageService.deleteImage(id);
+          //refresh data source after deleteing image from table 
+          this.dataSource = new MatTableDataSource(this.imageList);
+          this.length = this.imageList.length;
 
-    this.length = this.imageList.length;
+          //if images are not availabe, then display default image
+          if (this.length == 0)
+          {
+            this.count = false;
+            this.imgUrl = 'assets/image-not-available.png';
+            this.imgDescription = '';
+          }
+          else
+          {
+            this.imageIndex = 1;
+            this.getNextImage(this.imageIndex);
 
-    //if images are not availabe, then display default image
-    if (this.length == 0) {
-      this.count = false;
-      this.imgUrl = 'assets/image-not-available.png';
-      this.imgDescription = '';
-    }
-    else {
-      this.imageIndex = 1;
-      this.getNextImage(this.imageIndex);
-    }
-  }
+          }
+        }
+        else
+        {
+          console.log('delete not');
+        }
+       });
+   }
+  
 
   //edit selected image
   editImage(id: number) {

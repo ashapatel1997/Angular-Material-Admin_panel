@@ -18,9 +18,9 @@ export class ImagesService {
         imageUrl: "assets/taj.jpg",
         imageDescription: "An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his favourite wife, the Taj Mahal is the jewel of Muslim art in India and one of the universally admired masterpieces of the world's heritage. "
       },
- { id: 1, imageUrl: 'assets/img-2.jpg', imageDescription: 'Guide to the Galaxy has a few things to say on the subject of towels.' },
+      { id: 3, imageUrl: 'assets/img-2.jpg', imageDescription: 'Guide to the Galaxy has a few things to say on the subject of towels.' },
       {
-        id: 2,
+        id: 4,
         imageUrl: "assets/taj.jpg",
         imageDescription: "An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his favourite wife, the Taj Mahal is the jewel of Muslim art in India and one of the universally admired masterpieces of the world's heritage. "
       }
@@ -28,6 +28,8 @@ export class ImagesService {
      
     ]
 
+
+  /** return image list */
   getImages(): Images[] {
     return this.imageList;
   }
@@ -81,7 +83,7 @@ export class ImagesService {
   deleteImage(id: number) {
     const index = this.imageList.findIndex(i => i.id === id);
     this.imageList.splice(index, 1);
-    return index;
+    console.log("itejm deleted and length=", this.imageList.length);
   }
 
 
@@ -93,7 +95,7 @@ export class ImagesService {
 
   /**fetch image URL and description of index to disply it in slider
   * 
-  * @param n is array index of image that will be shown in slider
+  * @param n is array index of image that will be display in slider
   */
   public getFetchedImage(n: number) {
     return this.imageList[n];

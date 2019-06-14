@@ -41,7 +41,7 @@ import { DeleteConfirmDialogComponent } from './dialog/delete-confirm-dialog/del
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' })
   ],
   providers: [CdkColumnDef],
-  entryComponents: [CancelDialogComponent],
+  entryComponents: [CancelDialogComponent, DeleteConfirmDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,15 @@
-<p>
-  delete-confirm-dialog works!
-</p>
+<!-- dialog for delete image   -->
+<span mat-dialog-title>Delete Image</span>
+ 
+<mat-dialog-content>
+  <!-- simple user mesage for confirmation -->
+  <label>Are you sure you want to delete image permenently?</label>
+</mat-dialog-content>
+
+<!-- action to confirm or cancel delete image -->
+<mat-dialog-actions>
+  <button mat-stroked-button color="primary" [mat-dialog-close]="true" >Yes</button>
+  <button mat-stroked-button [mat-dialog-close]="false">No</button>
+</mat-dialog-actions>
+
+

@@ -4,13 +4,8 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\images",
-    "\\src\\app\\images\\add-image",
-    "\\src\\app\\reports",
-    "\\src\\app\\reports\\report1",
-    "\\src\\app\\reports\\report2",
-    "\\src\\app\\users",
-    "\\src\\app\\users\\add-user"
+    "\\src\\app\\users"
   ],
-  "SelectedNode": "\\src\\app\\images\\images.component.html",
+  "SelectedNode": "\\src\\app\\images\\images.component.scss",
   "PreviewInSolutionExplorer": false
 }

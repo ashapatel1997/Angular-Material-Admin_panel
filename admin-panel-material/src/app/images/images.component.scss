@@ -15,29 +15,50 @@
   }
 }
 
-/*image list table with edit and delete options*/
-.image-list-table {
-  width:$percent-70;margin:20px auto;
-  .image-list-table { width: $percent-100; 
-    th {
-      font-weight: bold;
-      color: black;
-      font-size: 15px;
-      @include table-content-padding();
-    }
-    td {
-      @include table-content-padding();
+/*card for image list table with edit and delete options*/
+.imageList-section { width: $percent-80; margin: 20px auto; /*div for table scroll in small device and to hide table if content not found*/ div {
+    .image-list-table { width: $percent-100; margin: 0 auto;
+      th {
+        @include table-content-lg-padding();
+      }
+      td {
+        @include table-content-lg-padding();
+      }
     }
   }
 }
+  
 
 
 
 
-/*styles for the image slider card when screen size(<=425px )*/
+
+
+/*styles for the image slider ang table when screen size(<=425px )*/
 @media only screen and (max-width:425px) {
-  .image-slider-card { width: $percent-85; }
-  .image-list-table { width: $percent-90; }
+  .image-slider-card { width: $percent-85;
+    .image-description-section { height: 40px;
+      span {
+        @include multi-line-ellipsis(12px,1.5,2)
+      }
+    }
+  }
+  /*.image-list-table { width: $percent-100; }*/
+
+  .imageList-section { width: $percent-90;
+    div { overflow: auto;
+      .image-list-table { width: 500px; margin: 0 auto;
+        th {
+          //@include table-content-sm-padding();
+        }
+        td {
+          //@include table-content-sm-padding();
+          font-size: 12px;
+        }
+      }
+    }
+  }
+  
 }
 
 /*styles for the image slider card when screen size(<=425px )*/

@@ -1,7 +1,14 @@
-/*padding around table content*/
-@mixin table-content-padding(){
+/*padding around table content for large screen*/
+@mixin table-content-lg-padding(){
   padding:5px 10px; //top-bottom:5px, left-right:10px
 }
+
+
+/*padding around table content for small screen*/
+@mixin table-content-sm-padding(){
+  padding:0px 10px; //top-bottom:0px, left-right:10px
+}
+
 
 @mixin multi-line-ellipsis($font-size,$line-height,$lines-to-show)
 {

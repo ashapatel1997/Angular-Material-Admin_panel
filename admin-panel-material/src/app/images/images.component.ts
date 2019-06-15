@@ -27,9 +27,9 @@ export class ImagesComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  totaleLength = 50;
+  //totaleLength = 50; 
   pageSize = 2;
-  pageSizeOptions: number[] = [2, 5, 10, 20];
+  pageSizeOptions: number[] = [0, 2, 5, 10];
 
   imageList: Images[];//array of images
   displayedColumns: string[]; //string array to display columns in table
@@ -44,15 +44,16 @@ export class ImagesComponent implements OnInit {
   imageIndex: number; //image index 
   length: number; //images array length
 
-  /*array length is not zero then count=true and show table,
-  if length is zero then count = false and hide table*/
+  /*array length is not zero then count=false (i.e:hidden="false") and show table,
+  if length is zero then count=false (i.e:hidden="true") and hide table*/
   count: boolean;
-
+  
   ngOnInit() {
   
     //if length of array is zero then display default image and disable slider buttons
     if (this._imageService.getLength() == 0) {
-      this.count = false;
+      this.count = true; //hidden="true"
+      console.log(this.count);
       this.imgUrl = 'assets/image-not-available.png';
       this.imgDescription = '';
       this.disabledLeft = true;
@@ -61,7 +62,7 @@ export class ImagesComponent implements OnInit {
 
     //else display first image in slider
     else {
-      this.count = true;
+      this.count = false; //hidden="false"
       this.imageList = this._imageService.getImages();
 
       //column reference 
@@ -71,7 +72,7 @@ export class ImagesComponent implements OnInit {
 
       ////pagination and sotring of table data
       this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort; //not working due to *ngIf condition
+      this.dataSource.sort = this.sort; 
 
       //fetch first image from list, to display in slider
       this.fetchImage = this._imageService.getFetchedImage(0);
@@ -104,7 +105,7 @@ export class ImagesComponent implements OnInit {
 
           //if images are not availabe, then display default image
           if (this.length == 0) {
-            this.count = false;
+            this.count = true; //hidden="true"
             this.imgUrl = 'assets/image-not-available.png';
             this.imgDescription = '';
           }

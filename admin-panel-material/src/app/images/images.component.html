@@ -23,7 +23,7 @@
 
 </mat-card>
 
-
+<!--card contains table (images content) and pagination--> 
 <mat-card class="imageList-section p-0" >
   <!--table to display image list with edit delete options-->
   <div [hidden]="count">
@@ -65,6 +65,7 @@
     </table>
   </div>
 
+  <!-- table pagination -->
   <mat-paginator #paginator 
                  [pageSize]="pageSize"
                  [pageSizeOptions]="pageSizeOptions">

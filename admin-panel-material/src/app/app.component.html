@@ -11,7 +11,8 @@
  <!--admin panel top  header-->
   <mat-toolbar class="admin-panel-top-header  h-50">
     <!-- header left image and heading -->
-    <img src="assets/admin.png" class="h-30 w-30" />
+ 
+    <span class="header-admin-image"></span>
     <h1 class="left-admin-panel-heading  pl-5">Admin Panel</h1>
 
     <!--spacing between left and right elements of the top header-->
@@ -53,9 +54,10 @@
             <a mat-list-item (click)="itemHideShow(3)" tabindex="-1" [ngClass]="activeLink">
               Reports
               <span class="spacing"></span>
-
-              <mat-icon *ngIf="arrowPosition">expand_more</mat-icon>
-              <mat-icon *ngIf="!arrowPosition">expand_less</mat-icon>
+              <span class="arrowDown" *ngIf="arrowPosition"></span>
+              <span class="arrowUp" *ngIf="!arrowPosition"></span>
+              <!--<mat-icon *ngIf="arrowPosition">expand_more</mat-icon>
+  <mat-icon *ngIf="!arrowPosition">expand_less</mat-icon>-->
             </a>
 
             <ul *ngIf="hide" class="mt-0 pl-0 w-100p">

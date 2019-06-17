@@ -2,14 +2,11 @@
 @import '../styles.scss';
 
 /*admin panel stop header styles*/
-.admin-panel-top-header {
-  background-color: $dark-blue;
-  color: white;
-  box-shadow: 0px 0px 5px black; //x-position y-position shadow-sharpness color
-
-  .header-right-menu-icon {
-    z-index: 2; //to display tooltip, over the other elements 
+.admin-panel-top-header { background-color: $dark-blue; color: white; box-shadow: 0px 0px 5px black;
+  .header-admin-image { height: 30px; width: 30px; background: url("../assets/css_sprites.png");
+                        background-position:0px 0px;
   }
+  .header-right-menu-icon { z-index: 2; }
 }
 
 /*admin panel bottom section (sidenav & content)*/
@@ -25,24 +22,14 @@
 
 //bottom section left sidenav list
 .leftSidenav {
-  ul {
-    list-style-type: none;
-   
+  ul { list-style-type: none;
+
     li {
-      a {
-        font-size: $large-font; 
-        color: white;
-        height:40px;
-
-        //style apply to hovered link
-        &:hover {
-          background-color: #003366;
-        }
-
-        //style apply to active link
-        &.active {
-          background-color: #003366;
-        }
+      a { font-size: $large-font; color: white; height: 40px;
+        .arrowDown { height: 24px; width: 24px; background: url("../assets/css_sprites.png"); background-position: -30px 0px; }
+        .arrowUp { height: 24px; width: 24px; background: url("../assets/css_sprites.png"); background-position: 0px -30px; }
+        &:hover { background-color: #003366; }
+        &.active { background-color: #003366; }
       }
     }
   }

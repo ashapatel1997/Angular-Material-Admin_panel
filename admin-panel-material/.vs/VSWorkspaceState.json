@@ -4,10 +4,9 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\dialog",
-    "\\src\\app\\dialog\\cancel-dialog",
-    "\\src\\app\\images",
-    "\\src\\app\\users"
+    "\\src\\app\\users",
+    "\\src\\assets"
   ],
-  "SelectedNode": "\\src\\app\\app.component.scss",
+  "SelectedNode": "\\src\\assets\\css_sprites.png",
   "PreviewInSolutionExplorer": false
 }

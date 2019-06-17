@@ -3,10 +3,9 @@
 
 /*admin panel stop header styles*/
 .admin-panel-top-header { background-color: $dark-blue; color: white; box-shadow: 0px 0px 5px black;
-  .header-admin-image { height: 30px; width: 30px; background: url("../assets/css_sprites.png");
-                        background-position:0px 0px;
+  .header-admin-image { height: 30px; width: 30px; background: url("../assets/css_sprites.png"); background-position: 0px 0px; }
+  .header-right-menu-icon { z-index: 2;
   }
-  .header-right-menu-icon { z-index: 2; }
 }
 
 /*admin panel bottom section (sidenav & content)*/

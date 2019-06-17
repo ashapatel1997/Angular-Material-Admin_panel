@@ -57,6 +57,25 @@
     }
   }
 
+//styles applied to the elements upto 425px screen size
+@media only screen and (max-width:425px) {
+  .bottom-section {
+  .left-sidenav {
+    width: 120px;
+  }
+
+}
+ .leftSidenav {
+  ul {
+    li {
+      a {
+        font-size: $medium-font; 
+      }
+    }
+  }
+}
+}
+
 
 
 

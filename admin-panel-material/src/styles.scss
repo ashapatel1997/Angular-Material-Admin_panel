@@ -78,7 +78,7 @@ mat-nav-list { padding-top: 0px;}
  /*common class*/
 .show { display: block; } //show element
 .hide { display: none; } //hide element
-.spacing { flex: auto; } //spacing between elements
+.spacing { flex: auto; } //spacing between elements 
 .alert { color: red; }
 .blue-snackbar { background-color: $blue;min-width: 50px !important; }
 
@@ -93,14 +93,14 @@ mat-nav-list { padding-top: 0px;}
   }
 }
 
-
+//bottom section content header styles for screen less than 768px
 @media only screen and (max-width:768px) {
-  .selected-listItem-header {
-    .header-grid-tile {
-      .left-heading {font-size: 20px;}
-      .right-addUser-button {
-        font-size: 10px;
-        mat-icon {font-size: 20px;}
+  .selected-listItem-header { 
+    .header-grid-tile { 
+      .left-heading { font-size: 20px; }
+
+      .content-header-right-button {  bottom: 0px; font-size: 10px;
+        mat-icon { font-size: 25px;}
       }
     }
   }
